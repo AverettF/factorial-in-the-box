@@ -59,8 +59,8 @@ namespace factorial_in_the_frame
                 Thread.Sleep(time);
 
             }
-
-            static void PrintBox(int fact)
+        }
+        static void PrintBox(int fact)
         {
             string strFact = Convert.ToString(fact);
 
@@ -84,6 +84,6 @@ namespace factorial_in_the_frame
         {
             Console.WriteLine($"║{middleLine}║");;
         }
-        }
+        
     }
 }

@@ -8,21 +8,21 @@ namespace factorial_in_the_frame
         static void Main(string[] args)
         {
                 Console.WriteLine("Введите какой нужно расчитать фактариал:");
-                int fact = ReadFact();
+                uint fact = ReadFact();
 
                 ColorChange(fact);
         }
 
-        static int ReadFact()
+        static uint ReadFact()
         {
             bool isSuccess;
-            int fact;
+            uint fact;
 
             do
             {
-                isSuccess = int.TryParse(Console.ReadLine(), out fact);
+                isSuccess = uint.TryParse(Console.ReadLine(), out fact);
 
-                if (isSuccess == false)
+                if (isSuccess == false ) 
                     Console.WriteLine("Неверный ввод");
 
             } while (!isSuccess);
@@ -30,17 +30,14 @@ namespace factorial_in_the_frame
             return FindFact(fact);
         }
 
-        static int FindFact(int endFact)
+        static uint FindFact(uint endFact)
         {
-            int fact = 1;
-            for (int i = 1; i <= endFact; i++)
-            {
-                fact *= i;
-            }
-            return fact;
+            if (endFact == 0)
+                return 1;
+            return endFact * FindFact(endFact - 1);
         }
 
-        static void ColorChange(int fact)
+        static void ColorChange(uint fact)
         {
             while (true)
             {
@@ -60,7 +57,7 @@ namespace factorial_in_the_frame
 
             }
         }
-        static void PrintBox(int fact)
+        static void PrintBox(uint fact)
         {
             string strFact = Convert.ToString(fact);
 
